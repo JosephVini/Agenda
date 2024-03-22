@@ -1,6 +1,6 @@
 import validator from "validator";
 
-export default class Login {
+export default class Contato {
     constructor(formClass) {
         this.form = document.querySelector(formClass);
     }
@@ -20,7 +20,7 @@ export default class Login {
     validate(e) {
         const el = e.target;
         const emailInput = el.querySelector('input[name="email"]');
-        const passwordInput = el.querySelector('input[name="password"]');
+        const telefoneInput = el.querySelector('input[name="telefone"]');
         let error = false;
 
         const existingErrorDivs = el.querySelectorAll('.text-danger');
@@ -32,16 +32,14 @@ export default class Login {
             div.classList.add('text-danger');
             emailInput.insertAdjacentElement('afterend', div);
             error = true;
-        }
-        if (passwordInput.value.length < 3 || passwordInput.value.length > 50) {
+        } else if (!validator.isMobilePhone(telefoneInput.value, 'any', { strictMode: false })) {
             const div = document.createElement('div');
-            div.innerHTML = 'Senha precisa ter entre 3 e 50 caracteres';
+            div.innerHTML = 'Telefone inválido';
             div.classList.add('text-danger');
-            passwordInput.insertAdjacentElement('afterend', div);
+            telefoneInput.insertAdjacentElement('afterend', div);
             error = true;
         }
 
         if (!error) el.submit();
-
     }
 }

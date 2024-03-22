@@ -1,3 +1,7 @@
 node_modules
 .env
 dadosMongoDB.txt
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

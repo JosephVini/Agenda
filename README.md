@@ -5,7 +5,7 @@ Uma aplicação web com back-end e front-end, tem como finalidade armazenar os c
 ### Comandos
  * npm start -> executa o nodemon
  * npm run dev -> executa o webpack
-
+ * npm test -> executa os testes
 
 ## Tecnologias
 

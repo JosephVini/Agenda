@@ -20,3 +20,7 @@ Uma aplicação web com back-end e front-end, tem como finalidade armazenar os c
 ## Agenda
 
 ![AgendaDemo](logoImgs/AgendaDemo.gif)
+
+## Aplicação dos testes no Playwright
+
+![Testes](/logoImgs/testesPlaywright.gif)

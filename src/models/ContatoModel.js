@@ -28,19 +28,22 @@ Contato.prototype.valida = function () {
     this.cleanUp();
     console.log("Corpo do objeto após cleanUp:", this.body);
 
-    if (this.body.email && !validator.isEmail(this.body.email)) {
-        console.log("E-mail inválido. Adicionando erro.");
-        this.errors.push('E-mail inválido')
-    };
     if (!this.body.nome) {
         console.log("Nome é um campo obrigatório. Adicionando erro.");
         this.errors.push('Nome é um campo obrigatório.');
-    }
-    if (!this.body.email && !this.body.telefone.trim()) {
+    };
+    if (!this.body.email.trim() && !this.body.telefone.trim()) {
         console.log("Nenhum contato fornecido. Adicionando erro.");
         this.errors.push('Pelo menos um contato precisa ser enviado: e-mail ou telefone.')
     };
-
+    if (this.body.email.trim() && !validator.isEmail(this.body.email)){
+        console.log("E-mail inválido. Adicionando erro.");
+        this.errors.push('E-mail inválido')
+    };
+    if (this.body.telefone.trim() && !validator.isMobilePhone(this.body.telefone.trim())) {
+        console.log("Telefone inválido. Adicionando erro.");
+        this.errors.push('Telefone inválido.');
+    };
 };
 
 Contato.prototype.cleanUp = function () {
